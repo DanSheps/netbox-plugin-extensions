@@ -1,5 +1,17 @@
 from netbox.views import generic
 
+__all__ = (
+    'PluginObjectListView',
+    'PluginObjectView',
+    'PluginObjectEditView',
+    'PluginObjectDeleteView',
+    'PluginObjectImportView',
+    'PluginObjectBulkCreateView',
+    'PluginObjectBulkEditView',
+    'PluginObjectBulkDeleteView',
+    'PluginObjectBulkRenameView',
+    'PluginObjectBulkImportView'
+)
 
 class PluginObjectListView(generic.ObjectListView):
     template_name = 'netbox_plugin_extensions/generic/object_list.html'

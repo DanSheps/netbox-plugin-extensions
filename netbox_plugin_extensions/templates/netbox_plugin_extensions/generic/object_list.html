@@ -3,16 +3,18 @@
 {% load helpers %}
 {% load render_table from django_tables2 %}
 {% load static %}
+{% load plugin_buttons %}
+{% load plugin_helpers %}
 
 {% block controls %}
   <div class="controls">
     <div class="control-group">
       {% block extra_controls %}{% endblock %}
       {% if permissions.add and 'add' in action_buttons %}
-          {% plugin_add_button content_type.model_class|plugin_validated_viewname:"add" %}
+          {% plugin_add_button content_type.model_class %}
       {% endif %}
       {% if permissions.add and 'import' in action_buttons %}
-          {% plugin_import_button content_type.model_class|plugin_validated_viewname:"import" %}
+          {% plugin_import_button content_type.model_class %}
       {% endif %}
       {% if 'export' in action_buttons %}
           {% plugin_export_button content_type %}

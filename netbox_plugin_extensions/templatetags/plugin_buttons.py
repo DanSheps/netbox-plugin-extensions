@@ -52,8 +52,8 @@ def plugin_delete_button(instance):
 
 @register.inclusion_tag('buttons/add.html')
 def plugin_add_button(instance):
-    viewname = _get_plugin_viewname(instance, 'edit')
-    url = reverse(viewname, kwargs={'pk': instance.pk})
+    viewname = _get_plugin_viewname(instance, 'add')
+    url = reverse(viewname)
 
     return {
         'add_url': url,
@@ -62,8 +62,8 @@ def plugin_add_button(instance):
 
 @register.inclusion_tag('buttons/import.html')
 def plugin_import_button(instance):
-    viewname = _get_plugin_viewname(instance, 'edit')
-    url = reverse(viewname, kwargs={'pk': instance.pk})
+    viewname = _get_plugin_viewname(instance, 'import')
+    url = reverse(viewname)
 
     return {
         'import_url': url,
@@ -124,9 +124,7 @@ def plugin_tr_delete_button(instance, extra=None):
 
 @register.inclusion_tag('netbox_plugin_extensions/buttons/tr_changelog.html')
 def plugin_tr_changelog_button(instance):
-    print(instance)
     viewname = _get_plugin_viewname(instance, 'changelog')
-    print(viewname)
     url = reverse(viewname, kwargs={'pk': instance.pk})
 
     return {
