@@ -9,10 +9,6 @@
     <orderEntry type="module" module-name="netbox" />
   </component>
   <component name="TemplatesService">
-    <option name="TEMPLATE_FOLDERS">
-      <list>
-        <option value="$MODULE_DIR$/netbox_plugin_extensions/templates" />
-      </list>
-    </option>
+    <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />
   </component>
 </module>
