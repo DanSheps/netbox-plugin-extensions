@@ -45,8 +45,6 @@ def plugin_viewname(model, action):
     Return the view name for the given model and action. Does not perform any validation.
     """
     namespace = _resolve_namespace(model)
-    print(f'{namespace}')
-    print(f'{namespace}:{model._meta.model_name}_{action}')
     return f'{namespace}:{model._meta.model_name}_{action}'
 
 
