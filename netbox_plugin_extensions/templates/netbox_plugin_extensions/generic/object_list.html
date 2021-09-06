@@ -9,13 +9,13 @@
     <div class="control-group">
       {% block extra_controls %}{% endblock %}
       {% if permissions.add and 'add' in action_buttons %}
-          {% add_button content_type.model_class|validated_plugin_viewname:"add" %}
+          {% plugin_add_button content_type.model_class|plugin_validated_viewname:"add" %}
       {% endif %}
       {% if permissions.add and 'import' in action_buttons %}
-          {% import_button content_type.model_class|validated_plugin_viewname:"import" %}
+          {% plugin_import_button content_type.model_class|plugin_validated_viewname:"import" %}
       {% endif %}
       {% if 'export' in action_buttons %}
-          {% export_button content_type %}
+          {% plugin_export_button content_type %}
       {% endif %}
     </div>
   </div>
@@ -55,7 +55,7 @@
 
       {# "Select all" form #}
       {% if table.paginator.num_pages > 1 %}
-        {% with bulk_edit_url=content_type.model_class|validated_plugin_viewname:"bulk_edit" bulk_delete_url=content_type.model_class|validated_plugin_viewname:"bulk_delete" %}
+        {% with bulk_edit_url=content_type.model_class|plugin_validated_viewname:"bulk_edit" bulk_delete_url=content_type.model_class|plugin_validated_viewname:"bulk_delete" %}
           <div id="select-all-box" class="d-none card noprint">
             <form method="post" class="form col-md-12">
               {% csrf_token %}
@@ -102,7 +102,7 @@
 
         {# Form buttons #}
         {% if permissions.change or permissions.delete %}
-          {% with bulk_edit_url=content_type.model_class|validated_plugin_viewname:"bulk_edit" bulk_delete_url=content_type.model_class|validated_plugin_viewname:"bulk_delete" %}
+          {% with bulk_edit_url=content_type.model_class|plugin_validated_viewname:"bulk_edit" bulk_delete_url=content_type.model_class|plugin_validated_viewname:"bulk_delete" %}
             <div class="noprint bulk-buttons">
               <div class="bulk-button-group">
                 {% block bulk_buttons %}{% endblock %}

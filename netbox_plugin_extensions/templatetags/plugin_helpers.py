@@ -7,6 +7,11 @@ from utilities.forms import TableConfigForm
 
 register = template.Library()
 
+__all__ = (
+    'plugin_viewname',
+    'plugin_validated_viewname',
+)
+
 
 def _resolve_namespace(instance):
     """
@@ -46,7 +51,7 @@ def plugin_viewname(model, action):
 
 
 @register.filter()
-def validated_plugin_viewname(model, action):
+def plugin_validated_viewname(model, action):
     """
     Return the view name for the given model and action if valid, or None if invalid.
     """

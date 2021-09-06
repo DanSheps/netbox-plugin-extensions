@@ -13,7 +13,7 @@ register = template.Library()
 #
 
 @register.inclusion_tag('buttons/clone.html')
-def clone_button(instance):
+def plugin_clone_button(instance):
     url = reverse(_get_plugin_viewname(instance, 'add'))
 
     # Populate cloned field values
@@ -27,7 +27,7 @@ def clone_button(instance):
 
 
 @register.inclusion_tag('buttons/edit.html')
-def edit_button(instance):
+def plugin_edit_button(instance):
     viewname = _get_plugin_viewname(instance, 'edit')
     url = reverse(viewname, kwargs={'pk': instance.pk})
 
@@ -37,7 +37,7 @@ def edit_button(instance):
 
 
 @register.inclusion_tag('buttons/delete.html')
-def delete_button(instance):
+def plugin_delete_button(instance):
     viewname = _get_plugin_viewname(instance, 'delete')
     url = reverse(viewname, kwargs={'pk': instance.pk})
 
@@ -51,7 +51,7 @@ def delete_button(instance):
 #
 
 @register.inclusion_tag('buttons/add.html')
-def add_button(instance):
+def plugin_add_button(instance):
     viewname = _get_plugin_viewname(instance, 'edit')
     url = reverse(viewname, kwargs={'pk': instance.pk})
 
@@ -61,7 +61,7 @@ def add_button(instance):
 
 
 @register.inclusion_tag('buttons/import.html')
-def import_button(instance):
+def plugin_import_button(instance):
     viewname = _get_plugin_viewname(instance, 'edit')
     url = reverse(viewname, kwargs={'pk': instance.pk})
 
@@ -71,7 +71,7 @@ def import_button(instance):
 
 
 @register.inclusion_tag('buttons/export.html', takes_context=True)
-def export_button(context, content_type=None):
+def plugin_export_button(context, content_type=None):
     add_exporttemplate_link = None
 
     if content_type is not None:
@@ -93,7 +93,7 @@ def export_button(context, content_type=None):
 #
 
 @register.inclusion_tag('netbox_plugin_extensions/buttons/tr_edit.html')
-def tr_edit_button(instance, extra=None):
+def plugin_tr_edit_button(instance, extra=None):
     viewname = _get_plugin_viewname(instance, 'edit')
     base_url = reverse(_get_plugin_viewname(instance, 'list'))
     url = reverse(viewname, kwargs={'pk': instance.pk})
@@ -108,7 +108,7 @@ def tr_edit_button(instance, extra=None):
 
 
 @register.inclusion_tag('netbox_plugin_extensions/buttons/tr_delete.html')
-def tr_delete_button(instance, extra=None):
+def plugin_tr_delete_button(instance, extra=None):
     viewname = _get_plugin_viewname(instance, 'delete')
     base_url = reverse(_get_plugin_viewname(instance, 'list'))
     url = reverse(viewname, kwargs={'pk': instance.pk})
@@ -123,7 +123,7 @@ def tr_delete_button(instance, extra=None):
 
 
 @register.inclusion_tag('netbox_plugin_extensions/buttons/tr_changelog.html')
-def tr_changelog_button(instance):
+def plugin_tr_changelog_button(instance):
     print(instance)
     viewname = _get_plugin_viewname(instance, 'changelog')
     print(viewname)
