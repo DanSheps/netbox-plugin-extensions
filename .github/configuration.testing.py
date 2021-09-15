@@ -15,7 +15,7 @@ DATABASE = {
 }
 
 PLUGINS = [
-    'netbox_secretstore',
+    'netbox_plugin_extensions',
 ]
 
 REDIS = {
