@@ -64,10 +64,7 @@ jobs:
       run: python netbox/netbox/manage.py collectstatic --no-input
 
     - name: Check PEP8 compliance
-      run: pycodestyle --ignore=W504,E501 --exclude=node_modules netbox-secretstore/netbox_secretstore/
-
-    - name: Validate Static Asset Integrity
-      run: netbox/scripts/verify-bundles.sh
+      run: pycodestyle --ignore=W504,E501 --exclude=node_modules netbox-plugin-extensions/netbox_plugin_extensions/
 
     - name: Run tests
       run: coverage run --source="netbox-plugin-extensions/netbox_plugin_extensions/" netbox/netbox/manage.py test netbox-plugin-extensions/netbox_plugin_extensions/
