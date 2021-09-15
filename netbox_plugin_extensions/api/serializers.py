@@ -1,5 +1,5 @@
 from netbox.api.serializers import ValidatedModelSerializer, WritableNestedSerializer, OrganizationalModelSerializer, \
-    PrimaryModelSerializer, NestedGroupModelSerializer
+    PrimaryModelSerializer, NestedGroupModelSerializer, BulkOperationSerializer
 
 
 class PluginValidatedModelSerializer(ValidatedModelSerializer):

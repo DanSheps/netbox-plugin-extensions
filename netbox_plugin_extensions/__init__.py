@@ -1,5 +1,6 @@
 from extras.plugins import PluginConfig
 
+
 class NetboxPluginExtensions(PluginConfig):
     name = 'netbox_plugin_extensions'
     verbose_name = 'Netbox Plugin Extensions'
@@ -12,5 +13,6 @@ class NetboxPluginExtensions(PluginConfig):
     required_settings = []
     caching_config = {}
     default_settings = {}
+
 
 config = NetboxPluginExtensions

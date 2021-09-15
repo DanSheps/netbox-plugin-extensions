@@ -13,6 +13,7 @@ __all__ = (
     'PluginObjectBulkImportView'
 )
 
+
 class PluginObjectListView(generic.ObjectListView):
     template_name = 'netbox_plugin_extensions/generic/object_list.html'
 
