@@ -67,8 +67,8 @@ jobs:
     - name: Check PEP8 compliance
       run: pycodestyle --ignore=W504,E501 --exclude=node_modules netbox-secretstore/netbox_secretstore/
 
-    - name: Check UI ESLint, TypeScript, and Prettier Compliance
-      run: yarn --cwd netbox-plugin-extensions/netbox_plugin_extensions/project-static validate
+    #- name: Check UI ESLint, TypeScript, and Prettier Compliance
+    #  run: yarn --cwd netbox-plugin-extensions/netbox_plugin_extensions/project-static validate
 
     - name: Validate Static Asset Integrity
       run: netbox/scripts/verify-bundles.sh
