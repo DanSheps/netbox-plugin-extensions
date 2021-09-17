@@ -92,6 +92,7 @@ def plugin_export_button(context, content_type=None):
 # Table buttons
 #
 
+
 @register.inclusion_tag('netbox_plugin_extensions/buttons/tr_edit.html')
 def plugin_tr_edit_button(instance, extra=None):
     viewname = _get_plugin_viewname(instance, 'edit')

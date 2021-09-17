@@ -57,7 +57,6 @@ jobs:
         pip install -r netbox/docs/requirements.txt
         pip install pycodestyle coverage
         ln -sr ./netbox-plugin-extensions/.github/configuration.testing.py ./netbox/netbox/netbox/configuration.py
-        yarn --cwd netbox-plugin-extensions/netbox_plugin_extensions/project-static
         cd netbox-plugin-extensions
         python setup.py develop
 
@@ -65,13 +64,7 @@ jobs:
       run: python netbox/netbox/manage.py collectstatic --no-input
 
     - name: Check PEP8 compliance
-      run: pycodestyle --ignore=W504,E501 --exclude=node_modules netbox-secretstore/netbox_secretstore/
-
-    - name: Check UI ESLint, TypeScript, and Prettier Compliance
-      run: yarn --cwd netbox-plugin-extensions/netbox_plugin_extensions/project-static validate
-
-    - name: Validate Static Asset Integrity
-      run: netbox/scripts/verify-bundles.sh
+      run: pycodestyle --ignore=W504,E501 --exclude=node_modules netbox-plugin-extensions/netbox_plugin_extensions/
 
     - name: Run tests
       run: coverage run --source="netbox-plugin-extensions/netbox_plugin_extensions/" netbox/netbox/manage.py test netbox-plugin-extensions/netbox_plugin_extensions/
