@@ -104,8 +104,4 @@
     </div>
   </div>
 
-  {% if obj and settings.DOCS_ROOT %}
-    {% include 'inc/modal.html' with name='docs' content=obj|get_docs %}
-  {% endif %}
-
 {% endblock content-wrapper %}
