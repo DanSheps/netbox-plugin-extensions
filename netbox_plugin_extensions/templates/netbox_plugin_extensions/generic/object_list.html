@@ -14,7 +14,7 @@
           {% plugin_add_button content_type.model_class %}
       {% endif %}
       {% if permissions.add and 'import' in action_buttons %}
-          {% plugin_import_button content_type.model_class %}
+          {% plugin_import_button content_type.model_class|plugin_validated_viewname:"import" %}
       {% endif %}
       {% if 'export' in action_buttons %}
           {% plugin_export_button content_type %}

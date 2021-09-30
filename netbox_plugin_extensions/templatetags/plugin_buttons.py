@@ -61,9 +61,7 @@ def plugin_add_button(instance):
 
 
 @register.inclusion_tag('buttons/import.html')
-def plugin_import_button(instance):
-    viewname = _get_plugin_viewname(instance, 'import')
-    url = reverse(viewname)
+def plugin_import_button(url):
 
     return {
         'import_url': url,
