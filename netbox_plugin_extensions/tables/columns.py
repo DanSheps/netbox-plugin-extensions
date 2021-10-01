@@ -11,14 +11,19 @@ class PluginButtonsColumn(ButtonsColumn):
     """
 
     template_code = """
-    {{% load plugin_buttons %}}
     {{% if "changelog" in buttons %}}
-        {{% plugin_tr_changelog_button record %}}
+        <a href="{{% url 'plugins:{app_label}:{model_name}_changelog' pk=record.pk %}}" class="btn btn-outline-dark btn-sm" title="Change log">
+            <i class="mdi mdi-history"></i>
+        </a>
     {{% endif %}}
     {{% if "edit" in buttons and perms.{app_label}.change_{model_name} %}}
-        {{% plugin_tr_edit_button record return_url_extra %}}
+        <a href="{{% url 'plugins:{app_label}:{model_name}_edit' pk=record.pk %}}?return_url={{{{ request.path }}}}{{{{ return_url_extra }}}}" class="btn btn-sm btn-warning" title="Edit">
+            <i class="mdi mdi-pencil"></i>
+        </a>
     {{% endif %}}
     {{% if "delete" in buttons and perms.{app_label}.delete_{model_name} %}}
-        {{% plugin_tr_delete_button record return_url_extra %}}
+        <a href="{{% url 'plugins:{app_label}:{model_name}_delete' pk=record.pk %}}?return_url={{{{ request.path }}}}{{{{ return_url_extra }}}}" class="btn btn-sm btn-danger" title="Delete">
+            <i class="mdi mdi-trash-can-outline"></i>
+        </a>
     {{% endif %}}
     """
