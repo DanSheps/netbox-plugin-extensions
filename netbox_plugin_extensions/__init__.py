@@ -5,7 +5,7 @@ class NetboxPluginExtensions(PluginConfig):
     name = 'netbox_plugin_extensions'
     verbose_name = 'Netbox Plugin Extensions'
     description = 'Wrappers for Netbox Generic Objects'
-    version = '1.0.2'
+    version = '1.0.3'
     author = 'Daniel Sheppard'
     author_email = 'dans@dansheps.com'
     base_url = 'netbox-plugin-extensions'
