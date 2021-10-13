@@ -24,13 +24,24 @@ def _resolve_namespace(instance):
     return f'{app.label}'
 
 
+def get_returnurl(instance, parent=None):
+    """
+    Get an appropriate return url
+    """
+    if parent is None:
+        return reverse(_get_plugin_viewname(instance, 'list'))
+    else:
+        return reverse(_get_plugin_viewname(parent), kwargs={'pk': parent.pk})
+
+
 def _get_plugin_viewname(instance, action=None):
     """
     Return the appropriate viewname for adding, editing, viewing changelog or deleting an instance.
     """
 
     # Validate action
-    assert action in ('add', 'edit', 'delete', 'list', 'changelog')
+    if action is not None:
+        assert action in ('add', 'edit', 'delete', 'list', 'changelog')
     app_label = _resolve_namespace(instance)
     if action is not None:
         viewname = f'{app_label}:{instance._meta.model_name}_{action}'

@@ -1,5 +1,6 @@
 from django import template
 from django.urls import reverse
+from netbox_plugin_extensions.templatetags.plugin_helpers import get_returnurl
 
 from extras.models import ExportTemplate
 from utilities.utils import prepare_cloned_fields
@@ -94,11 +95,11 @@ def plugin_export_button(context, content_type=None):
 
 
 @register.inclusion_tag('netbox_plugin_extensions/buttons/tr_edit.html')
-def plugin_tr_edit_button(instance, extra=None):
+def plugin_tr_edit_button(instance, extra=None, parent=None):
     viewname = _get_plugin_viewname(instance, 'edit')
-    base_url = reverse(_get_plugin_viewname(instance, 'list'))
+    return_url = get_returnurl(instance, parent)
     url = reverse(viewname, kwargs={'pk': instance.pk})
-    url = f'{url}?return_url={base_url}'
+    url = f'{url}?return_url={return_url}'
 
     if extra is not None:
         url = f'{url}{extra}'
@@ -109,11 +110,11 @@ def plugin_tr_edit_button(instance, extra=None):
 
 
 @register.inclusion_tag('netbox_plugin_extensions/buttons/tr_delete.html')
-def plugin_tr_delete_button(instance, extra=None):
+def plugin_tr_delete_button(instance, extra=None, parent=None):
     viewname = _get_plugin_viewname(instance, 'delete')
-    base_url = reverse(_get_plugin_viewname(instance, 'list'))
+    return_url = get_returnurl(instance, parent)
     url = reverse(viewname, kwargs={'pk': instance.pk})
-    url = f'{url}?return_url={base_url}'
+    url = f'{url}?return_url={return_url}'
 
     if extra is not None:
         url = f'{url}{extra}'
@@ -124,9 +125,10 @@ def plugin_tr_delete_button(instance, extra=None):
 
 
 @register.inclusion_tag('netbox_plugin_extensions/buttons/tr_changelog.html')
-def plugin_tr_changelog_button(instance):
+def plugin_tr_changelog_button(instance, extra=None, parent=None):
     viewname = _get_plugin_viewname(instance, 'changelog')
     url = reverse(viewname, kwargs={'pk': instance.pk})
+    url = f'{url}'
 
     return {
         'url': url,
