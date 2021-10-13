@@ -9,6 +9,7 @@ __all__ = (
     'PluginDynamicModelMultipleChoiceField'
 )
 
+
 class PluginDynamicModelChoiceMixin(DynamicModelChoiceMixin):
 
     def get_bound_field(self, form, field_name):
