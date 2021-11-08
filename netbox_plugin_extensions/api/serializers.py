@@ -1,5 +1,10 @@
-from netbox.api.serializers import ValidatedModelSerializer, WritableNestedSerializer, OrganizationalModelSerializer, \
-    PrimaryModelSerializer, NestedGroupModelSerializer, BulkOperationSerializer
+try:
+    from netbox.api.serializers import NestedGroupModelSerializer as OrganizationalModelSerializer
+except ImportError:
+    from netbox.api.serializers import OrganizationalModelSerializer
+
+from netbox.api.serializers import ValidatedModelSerializer, WritableNestedSerializer, PrimaryModelSerializer,\
+    NestedGroupModelSerializer, BulkOperationSerializer
 
 
 class PluginValidatedModelSerializer(ValidatedModelSerializer):
