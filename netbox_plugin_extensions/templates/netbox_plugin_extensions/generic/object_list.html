@@ -6,6 +6,8 @@
 {% load plugin_buttons %}
 {% load plugin_helpers %}
 
+{% block title %}{{ content_type.model_class|meta:"verbose_name_plural"|bettertitle }}{% endblock %}
+
 {% block controls %}
   <div class="controls">
     <div class="control-group">
@@ -28,7 +30,7 @@
     {% block tab_items %}
       <li class="nav-item" role="presentation">
         <button class="nav-link active" id="object-list-tab" data-bs-toggle="tab" data-bs-target="#object-list" type="button" role="tab" aria-controls="edit-form" aria-selected="true">
-          {% block title %}{{ content_type.model_class|meta:"verbose_name_plural"|bettertitle }}{% endblock %}
+          Records
           {% badge table.page.paginator.count %}
         </button>
       </li>

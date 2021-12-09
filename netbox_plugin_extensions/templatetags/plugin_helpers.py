@@ -41,7 +41,7 @@ def _get_plugin_viewname(instance, action=None):
 
     # Validate action
     if action is not None:
-        assert action in ('add', 'edit', 'delete', 'list', 'changelog')
+        assert action in ('add', 'edit', 'delete', 'list', 'changelog', 'import', 'export')
     app_label = _resolve_namespace(instance)
     if action is not None:
         viewname = f'{app_label}:{instance._meta.model_name}_{action}'
