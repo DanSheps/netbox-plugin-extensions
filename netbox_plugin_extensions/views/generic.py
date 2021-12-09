@@ -19,7 +19,7 @@ class PluginObjectListView(generic.ObjectListView):
 
 
 class PluginObjectView(generic.ObjectView):
-    template_name = 'netbox_plugin_extensions/generic/object.html'
+    pass
 
 
 class PluginObjectEditView(generic.ObjectEditView):
