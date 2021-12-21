@@ -18,12 +18,13 @@ A collection of plugin extensions for netbox, including generic wrappers around 
 
 ### Compatibility Matrix
 
-|                       | Netbox 2.10 | Netbox 2.11 | Netbox 3.0 | Netbox 3.1 |
-|-----------------------|------------|------------|-------------|-------------|
-| <1.0.4 |      X     |            |             |             |
-| 1.0.5 |      X     |      X     |             |             |
-| 1.0.6 |      X     |      X     |      X      |      X       |
-| 2.0.0 |           |           |            |      X      |
+|        | Netbox 2.10 | Netbox 2.11 | Netbox 3.0  | Netbox 3.1.0-1  | Netbox 3.1.2> |
+|--------|-------------|-------------|-------------|-----------------|---------------|
+| <1.0.4 |      X      |             |             |                 |               |
+| 1.0.5  |      X      |      X      |             |                 |               |
+| 1.0.6  |      X      |      X      |      X      |        X        |               |
+| 1.0.9  |             |             |      X      |        X        |               |
+| 1.1.0  |             |             |             |                 |       X       |
 
 ### Installation
 
