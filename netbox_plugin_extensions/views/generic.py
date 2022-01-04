@@ -23,19 +23,19 @@ class PluginObjectView(generic.ObjectView):
 
 
 class PluginObjectEditView(generic.ObjectEditView):
-    template_name = 'netbox_plugin_extensions/generic/object_edit.html'
+    pass
 
 
 class PluginObjectDeleteView(generic.ObjectDeleteView):
-    template_name = 'netbox_plugin_extensions/generic/object_delete.html'
+    pass
 
 
 class PluginObjectImportView(generic.ObjectImportView):
-    template_name = 'netbox_plugin_extensions/generic/object_import.html'
+    pass
 
 
 class PluginObjectBulkImportView(generic.BulkImportView):
-    template_name = 'netbox_plugin_extensions/generic/object_bulk_import.html'
+    pass
 
 
 class PluginObjectBulkCreateView(generic.BulkCreateView):
@@ -43,12 +43,12 @@ class PluginObjectBulkCreateView(generic.BulkCreateView):
 
 
 class PluginObjectBulkEditView(generic.BulkEditView):
-    template_name = 'netbox_plugin_extensions/generic/object_bulk_edit.html'
+    pass
 
 
 class PluginObjectBulkDeleteView(generic.BulkDeleteView):
-    template_name = 'netbox_plugin_extensions/generic/object_bulk_delete.html'
+    pass
 
 
 class PluginObjectBulkRenameView(generic.BulkRenameView):
-    template_name = 'netbox_plugin_extensions/generic/object_bulk_rename.html'
+    pass

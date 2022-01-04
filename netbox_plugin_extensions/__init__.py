@@ -17,7 +17,7 @@ class NetboxPluginExtensions(PluginConfig):
     author = plugin.get('Author')
     author_email = plugin.get('Author-email')
     base_url = 'netbox-plugin-extensions'
-    min_version = '3.0'
+    min_version = '3.1'
     required_settings = []
     caching_config = {}
     default_settings = {}
