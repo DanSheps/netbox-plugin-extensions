@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='netbox-plugin-extensions',
-    version='1.1.0',
+    version='1.1.1',
     description='NetBox Plugin Extensions',
     long_description='Wrappers for Netbox Generic Objects',
     url='https://github.com/dansheps/netbox-plugin-extensions/',

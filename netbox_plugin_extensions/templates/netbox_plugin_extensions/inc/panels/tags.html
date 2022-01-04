@@ -1,0 +1,15 @@
+{% load helpers %}
+{% load plugin_helpers %}
+
+<div class="card">
+  <h5 class="card-header">Tags</h5>
+  <div class="card-body">
+    {% with url=object|plugin_validated_viewname:"list" %}
+      {% for tag in object.tags.all %}
+        {% tag tag url %}
+      {% empty %}
+        <span class="text-muted">No tags assigned</span>
+      {% endfor %}
+    {% endwith %}
+  </div>
+</div>
