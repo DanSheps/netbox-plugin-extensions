@@ -1,5 +1,5 @@
-from extras.forms import CustomFieldModelForm
+from extras.forms import CustomFieldForm
 
 
-class PluginCustomFieldModelForm(CustomFieldModelForm):
+class PluginCustomFieldModelForm(CustomFieldForm):
     pass

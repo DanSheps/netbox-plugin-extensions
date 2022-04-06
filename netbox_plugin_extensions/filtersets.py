@@ -1,4 +1,4 @@
-from netbox.filtersets import BaseFilterSet, OrganizationalModelFilterSet, PrimaryModelFilterSet, \
+from netbox.filtersets import BaseFilterSet, OrganizationalModelFilterSet, NetBoxModelFilterSet, \
     ChangeLoggedModelFilterSet
 
 
@@ -10,7 +10,7 @@ class PluginChangeLoggedModelFilterSet(ChangeLoggedModelFilterSet):
     pass
 
 
-class PluginPrimaryModelFilterSet(PrimaryModelFilterSet):
+class PluginPrimaryModelFilterSet(NetBoxModelFilterSet):
     pass
 
 

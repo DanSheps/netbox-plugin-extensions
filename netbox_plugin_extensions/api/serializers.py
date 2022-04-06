@@ -3,7 +3,7 @@ try:
 except ImportError:
     from netbox.api.serializers import OrganizationalModelSerializer
 
-from netbox.api.serializers import ValidatedModelSerializer, WritableNestedSerializer, PrimaryModelSerializer,\
+from netbox.api.serializers import ValidatedModelSerializer, WritableNestedSerializer, NetBoxModelSerializer,\
     NestedGroupModelSerializer, BulkOperationSerializer
 
 
@@ -27,7 +27,7 @@ class PluginOrganizationalModelSerializer(OrganizationalModelSerializer):
     pass
 
 
-class PluginPrimaryModelSerializer(PrimaryModelSerializer):
+class PluginPrimaryModelSerializer(NetBoxModelSerializer):
     pass
 
 
