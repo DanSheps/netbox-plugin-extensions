@@ -1,4 +1,5 @@
-from netbox.models import PrimaryModel, OrganizationalModel, NestedGroupModel, ChangeLoggedModel, BigIDModel
+from django.db import models
+from netbox.models import OrganizationalModel, NestedGroupModel, ChangeLoggedModel, NetBoxModel
 
 __all__ = (
     'PluginBigIDModel',
@@ -9,7 +10,14 @@ __all__ = (
 )
 
 
-class PluginBigIDModel(BigIDModel):
+class PluginBigIDModel(models.Model):
+
+    """
+    Abstract base model for all data objects. Ensures the use of a 64-bit PK.
+    """
+    id = models.BigAutoField(
+        primary_key=True
+    )
 
     class Meta:
         abstract = True
@@ -33,7 +41,7 @@ class PluginOrganizationalModel(OrganizationalModel):
         abstract = True
 
 
-class PluginPrimaryModel(PrimaryModel):
+class PluginPrimaryModel(NetBoxModel):
 
     class Meta:
         abstract = True

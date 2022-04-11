@@ -18,13 +18,14 @@ A collection of plugin extensions for netbox, including generic wrappers around 
 
 ### Compatibility Matrix
 
-|        | Netbox 2.10 | Netbox 2.11 | Netbox 3.0  | Netbox 3.1.0-1  | Netbox 3.1.2> |
-|--------|-------------|-------------|-------------|-----------------|---------------|
-| <1.0.4 |      X      |             |             |                 |               |
-| 1.0.5  |      X      |      X      |             |                 |               |
-| 1.0.6  |      X      |      X      |      X      |        X        |               |
-| 1.0.9  |             |             |      X      |        X        |               |
-| 1.1.0  |             |             |             |                 |       X       |
+|        | Netbox 2.10 | Netbox 2.11 | Netbox 3.0  | Netbox 3.1.0-1  | Netbox 3.1.x | Netbox 3.2.x |
+|--------|-------------|-------------|-------------|-----------------|--------------|--------------|
+| <1.0.4 |      X      |             |             |                 |              |              |
+| 1.0.5  |      X      |      X      |             |                 |              |              |
+| 1.0.6  |      X      |      X      |      X      |        X        |              |              |
+| 1.0.9  |             |             |      X      |        X        |              |              |
+| 1.1.0  |             |             |             |                 | X            |              |
+| 1.2.0  |             |             |             |                 |              | X            |
 
 ### Installation
 
@@ -112,6 +113,22 @@ class NetboxPluginExtensions(PluginConfig):
 
 config = NetboxPluginExtensions
 
+```
+
+### Testing
+
+To test to ensure this plugin is working, you can:
+
+```python
+    def ready(self):
+        from .views import changelog, generic
+        from .templatetags import plugin_buttons, plugin_helpers
+        from .tables import columns, objectchange
+        from .forms import fields, model
+        from .api import fields, serializers, views
+        from .models import PluginPrimaryModel
+        from .filtersets import PluginPrimaryModelFilterSet
+        from .querysets import PluginRestrictedQuerySet
 ```
 
 ### Contribute

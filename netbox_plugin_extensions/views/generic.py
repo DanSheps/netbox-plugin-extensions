@@ -15,7 +15,7 @@ __all__ = (
 
 
 class PluginObjectListView(generic.ObjectListView):
-    template_name = 'netbox_plugin_extensions/generic/object_list.html'
+    pass
 
 
 class PluginObjectView(generic.ObjectView):

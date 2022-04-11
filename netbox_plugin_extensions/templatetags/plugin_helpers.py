@@ -3,7 +3,7 @@ from django.apps import apps
 from django.urls import NoReverseMatch, reverse
 
 from extras.plugins import PluginConfig
-from utilities.forms import TableConfigForm
+from utilities.templatetags.helpers import viewname, validated_viewname
 
 register = template.Library()
 
@@ -50,26 +50,5 @@ def _get_plugin_viewname(instance, action=None):
     return viewname
 
 
-@register.filter()
-def plugin_viewname(model, action):
-    """
-    Return the view name for the given model and action. Does not perform any validation.
-    """
-    namespace = _resolve_namespace(model)
-    return f'{namespace}:{model._meta.model_name}_{action}'
-
-
-@register.filter()
-def plugin_validated_viewname(model, action):
-    """
-    Return the view name for the given model and action if valid, or None if invalid.
-    """
-    namespace = _resolve_namespace(model)
-    viewname = f'{namespace}:{model._meta.model_name}_{action}'
-    try:
-        # Validate and return the view name. We don't return the actual URL yet because many of the templates
-        # are written to pass a name to {% url %}.
-        reverse(viewname)
-        return viewname
-    except NoReverseMatch:
-        return None
+plugin_viewname = viewname
+plugin_validated_viewname = validated_viewname
